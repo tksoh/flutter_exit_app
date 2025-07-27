@@ -48,7 +48,8 @@ public class FlutterExitAppPlugin implements FlutterPlugin, MethodCallHandler, A
       if (Build.VERSION.SDK_INT < 21) {
         activity.finishAffinity();
       } else {
-        activity.finishAndRemoveTask();
+        // activity.finishAndRemoveTask();
+        activity.finishAffinity();
       }
       handler.postDelayed(() -> Runtime.getRuntime().exit(0), 1000);
       result.success("Done");
